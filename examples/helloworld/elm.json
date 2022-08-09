@@ -2,7 +2,9 @@
     "type": "application",
     "source-directories": [
         "src",
-        "../../src"
+        "../../src",
+        "../../../elm-with-ui-backend/src",
+        "../../../elm-with-ui-html/src"
     ],
     "elm-version": "0.19.1",
     "dependencies": {

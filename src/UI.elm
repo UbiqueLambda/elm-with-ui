@@ -18,7 +18,6 @@ module UI exposing
     , withFontFamilies, FontFallback, serif, sansSerif, monospace
     , withInheritFontFamilies, withInheritFontColor, withInheritFontSize, withInheritFontWeight
     , withOnClick
-    , toElmHtml, ElmHtmlEncoder, elmHtmlInit
     )
 
 {-| With-pattern UI toolkit for Elm. Oversimplified by now.
@@ -111,16 +110,10 @@ In this documentant, the world `unit` meaning varies according to your Encoder.
 
 @docs withOnClick
 
-
-# Rendering
-
-@docs toElmHtml, ElmHtmlEncoder, elmHtmlInit
-
 -}
 
 import Html exposing (Html)
 import UI.Backend.Graphics as Backend
-import UI.Backend.Html as Html
 
 
 {-| Type for describing atoms or groups.
@@ -187,12 +180,6 @@ type alias Alignment =
 -}
 type alias FontFallback =
     Backend.FontFallback
-
-
-{-| Types that describes and configures the encoding to Elm-compatible HTML.
--}
-type alias ElmHtmlEncoder =
-    Html.Encoder
 
 
 {-| Usually used for nesting components.
@@ -1067,26 +1054,3 @@ withInheritFontWeight =
 withOnClick : msg -> Graphics msg -> Graphics msg
 withOnClick =
     Backend.withOnClick
-
-
-{-| Outputs Elm-compatible HTML-structure.
-
-**NOTE**: To be used once in an entire document since it provides a generic spreadsheet.
-
--}
-toElmHtml : ElmHtmlEncoder -> Graphics msg -> List (Html msg)
-toElmHtml =
-    Html.encode
-
-
-{-| Initialized the default encoder with the default settings:
-
-  - Node are tagged with `<g></g>`;
-  - Root nodes have `class="root"`;
-  - [Stacked](#stack) nodes have `class="stack"`;
-  - `unit` means CSS' `px`.
-
--}
-elmHtmlInit : ElmHtmlEncoder
-elmHtmlInit =
-    Html.init

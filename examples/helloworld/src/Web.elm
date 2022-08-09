@@ -8,6 +8,7 @@ import Main.Msg as Msg exposing (Msg)
 import Main.Update as Update
 import Main.View as View
 import UI
+import UI.Backend.Html as UIHtml
 
 
 main : Program Flags Model Msg
@@ -22,9 +23,9 @@ main =
 
 viewEncode : ( String, UI.Graphics msg ) -> { title : String, body : List (Html msg) }
 viewEncode ( title, body ) =
-    { title = title, body = UI.toElmHtml viewEncoder body }
+    { title = title, body = UIHtml.encode viewEncoder body }
 
 
-viewEncoder : UI.ElmHtmlEncoder
+viewEncoder : UIHtml.Encoder
 viewEncoder =
-    UI.elmHtmlInit
+    UIHtml.init
