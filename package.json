@@ -1,0 +1,15 @@
+{
+  "name": "elm-with-ui",
+  "version": "0.0.0",
+  "author": "PedroHLC",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "elm": "^0.19.1-5",
+    "elm-review": "^2.7.3"
+  },
+  "scripts": {
+    "review:package": "elm-review --template UbiqueLambda/elm-review-config",
+    "review:example-helloword": "cd examples/helloword && elm-review --template UbiqueLambda/elm-review-config"
+  }
+}
