@@ -21,7 +21,7 @@ For a more elaborated example check `examples/helloworld/src/Main/View.elm`.
 
 ## Grouping
 
-![Grouping](https://raw.githubusercontent.com/UbiqueLambda/elm-with-ui/main/docs/elm-with-ui-groupings.svg)
+![Grouping](https://github.com/UbiqueLambda/elm-with-ui/raw/main/docs/elm-with-ui-groupings.svg)
 
 
 ## Installing
