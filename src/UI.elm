@@ -112,7 +112,6 @@ In this documentant, the world `unit` meaning varies according to your Encoder.
 
 -}
 
-import Html exposing (Html)
 import UI.Backend.Graphics as Backend
 
 
@@ -195,9 +194,14 @@ map =
 
 {-| Use 32-bit hexadecimal to describe the RGBA color.
 
-red = intRGBA 0xFF0000FF
-yellow = intRGBA 0xFFFF00FF
-cyan = intRGBA 0x00FFFFFF
+    red =
+        intRGBA 0xFF0000FF
+
+    yellow =
+        intRGBA 0xFFFF00FF
+
+    cyan =
+        intRGBA 0x00FFFFFF
 
 -}
 intRGBA : Int -> Color
@@ -216,7 +220,7 @@ empty =
 
 In HTML, this will insert text in the document without surrouding it in a tag.
 
-**NOTE**: When you use any [with\* function](#Options) in a loose-text, it automatically wraps in a [`singleton`](#singleton).
+**NOTE**: When you use any with-functions in a loose-text, it automatically wraps in a [`singleton`](#singleton).
 The result is then identical to a [`spanText`](#spanText).
 
 -}
@@ -445,7 +449,7 @@ withPadding =
 
     square =
         UI.spanText "Hello World!"
-            |> UI.withPaddingEach { top = 1, right = 3, bottom = 4, left = 2 }
+            |> UI.withPaddingXY 12 16
             |> UI.withBorder (UI.border1uBlack |> Just)
 
 -}
@@ -943,7 +947,7 @@ withFontSize =
 Default font's weight is inherited, where's in the root element it's 400.
 
     coolTitle =
-        UI.spanText "HELLO"
+        UI.spanText "BOLD"
             |> UI.withFontWeight 700
 
 -}

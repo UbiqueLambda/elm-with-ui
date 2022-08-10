@@ -1,6 +1,6 @@
 module Main.View exposing (view)
 
-import Main.Colors exposing (..)
+import Main.Colors exposing (blue, cyan, gray, green, orange, red, yellow)
 import Main.Model exposing (Model)
 import Main.Msg as Msg exposing (Msg)
 import UI
@@ -29,11 +29,34 @@ view model =
     )
 
 
-header : UI.Graphics msg
-header =
-    UI.spanText "Hello World!"
-        |> UI.withFontWeight 700
-        |> UI.withFontSize 24
+bordersExample : UI.Graphics msg
+bordersExample =
+    UI.empty
+        |> UI.withWidth 25
+        |> UI.withHeight 25
+        |> UI.withBorder (UI.border1uBlack |> Just)
+        |> UI.singleton
+        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor red |> Just)
+        |> UI.singleton
+        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor orange |> Just)
+        |> UI.singleton
+        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor yellow |> Just)
+        |> UI.singleton
+        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor green |> Just)
+        |> UI.singleton
+        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor cyan |> Just)
+        |> UI.singleton
+        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor blue |> Just)
+        |> UI.withAlignSelf UI.center
+
+
+columnExample : UI.Graphics msg
+columnExample =
+    UI.indexedColumn
+        [ square 0 red
+        , square 1 blue
+        , square 2 green
+        ]
         |> UI.withAlignSelf UI.center
 
 
@@ -63,45 +86,11 @@ eventsRowExample model =
         ]
 
 
-columnExample : UI.Graphics msg
-columnExample =
-    UI.indexedColumn
-        [ square 0 red
-        , square 1 blue
-        , square 2 green
-        ]
-        |> UI.withAlignSelf UI.center
-
-
-stackExample : UI.Graphics msg
-stackExample =
-    UI.indexedStack
-        [ square 2 red
-        , square 1 blue
-        , square 0 green
-        ]
-        |> UI.withJustifyItems UI.center
-        |> UI.withAlignSelf UI.center
-
-
-bordersExample : UI.Graphics msg
-bordersExample =
-    UI.empty
-        |> UI.withWidth 25
-        |> UI.withHeight 25
-        |> UI.withBorder (UI.border1uBlack |> Just)
-        |> UI.singleton
-        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor red |> Just)
-        |> UI.singleton
-        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor orange |> Just)
-        |> UI.singleton
-        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor yellow |> Just)
-        |> UI.singleton
-        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor green |> Just)
-        |> UI.singleton
-        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor cyan |> Just)
-        |> UI.singleton
-        |> UI.withBorder (UI.border1uBlack |> UI.borderWithColor blue |> Just)
+header : UI.Graphics msg
+header =
+    UI.spanText "Hello World!"
+        |> UI.withFontWeight 700
+        |> UI.withFontSize 24
         |> UI.withAlignSelf UI.center
 
 
@@ -122,3 +111,14 @@ square n color =
         |> UI.withHeight (120 + n * 32)
         |> UI.withBackground (UI.backgroundColor color |> Just)
         |> UI.withAlignSelf UI.end
+
+
+stackExample : UI.Graphics msg
+stackExample =
+    UI.indexedStack
+        [ square 2 red
+        , square 1 blue
+        , square 0 green
+        ]
+        |> UI.withJustifyItems UI.center
+        |> UI.withAlignSelf UI.center
