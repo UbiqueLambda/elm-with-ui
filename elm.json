@@ -1,7 +1,7 @@
 {
     "type": "package",
     "name": "UbiqueLambda/elm-with-ui",
-    "summary": "Cross-platform with-pattern UI toolkit for Elm",
+    "summary": "Cross-platform with*-pattern UI toolkit for Elm",
     "license": "MIT",
     "version": "1.0.0",
     "exposed-modules": [

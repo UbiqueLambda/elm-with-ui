@@ -1,6 +1,6 @@
 # UbiqueLambda/elm-with-ui
 
-With-pattern UI toolkit for Elm. Oversimplified by now.
+[With\*-pattern](https://youtu.be/PDyWP-0H4Zo?t=1761) UI toolkit for Elm. Oversimplified by now.
 
 Different from the backend, expect this package to have a stable API.
 
